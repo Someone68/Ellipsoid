@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Ellipsoid</title>
+    <link href="game.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="../assets/ellipsoid.png" type="image/png" />
+    <script src="https://util.tinymooshmallow.repl.co/util.js"></script>
+  </head>
+  <body>
+    <div class="player box">
+      <div class="center">
+        <h1 id="playername"></h1>
+        <h3 class="turn" id="playerturn">Your Turn</h3>
+        <br />
+        <img
+          src="https://api.dicebear.com/7.x/shapes/svg?seed=2cn3u98cs"
+          alt="player"
+          class="icon"
+        />
+        <p class="stats">DMG <span id="dmg">15</span>&nbsp;&nbsp;&nbsp;HP <span id="hp">100</span>&nbsp;&nbsp;&nbsp;MANA <span id="mana">50</span></p>
+        <br>
+        <div class="moves">
+        <h2>Choose a move:</h2><br>
+        <button class="move">Attack</button>
+        <button class="move">Defend</button>
+        <button class="move">Heal</button>
+        <button class="move">Skip</button>
+          </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="enemy box">
+      <div class="center">
+        <h1 id="enemyname">enemy name</h1>
+        <h3 class="turn" id="enemyturn">Enemy Turn</h3>
+        <br />
+        <img
+          src="https://api.dicebear.com/7.x/shapes/svg?seed=w89h2cbyr8932"
+          alt="enemy"
+          class="icon"
+        />
+        <p class="stats">DMG <span id="edmg">15</span>&nbsp;&nbsp;&nbsp;HP <span id="ehp">100</span>&nbsp;&nbsp;&nbsp;MANA <span id="emana">50</span></p>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
