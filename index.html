@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Ellipsoid</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="assets/ellipsoid.png" type="image/png" />
-    <script src="https://util.tinymooshmallow.repl.co/util.js"></script>
-  </head>
-  <body>
-    <div class="center title">
-      <h1>Ellipsoid</h1>
-      <p>battle your way through...</p>
-      <br />
-      <form onsubmit="entergame();return false;">
-        <label for="username">Username</label><br />
-        <input
-          type="text"
-          placeholder="2-15 characters"
-          id="username"
-          minlength="2"
-          maxlength="15"
-          required
-          autocomplete="off"
-          autofocus
-        /><br />
-        <input type="checkbox" id="keep" />
-        <label for="keep">Keep username next games</label>
-        <br />
-        <button type="submit">Play</button>
-      </form>
-    </div>
-    <script src="script.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Ellipsoid</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="assets/ellipsoid.png" type="image/png" />
+		<script src="https://util.tinymooshmallow.repl.co/util.js"></script>
+	</head>
+	<body>
+		<div class="center title">
+			<h1>Ellipsoid</h1>
+			<p>battle your way through...</p>
+			<br />
+			<form onsubmit="entergame();return false;">
+				<label for="username">Username</label><br />
+				<input
+					type="text"
+					placeholder="2-15 characters"
+					id="username"
+					minlength="2"
+					maxlength="15"
+					required
+					autocomplete="off"
+					autofocus
+				/><br />
+				<label for="username">Icon Seed (Optional)</label><br />
+				<input
+					type="text"
+					placeholder="Leave blank to use username"
+					id="seed"
+					autocomplete="off"
+					autofocus
+				/><br />
+				<input type="checkbox" id="keep" />
+				<label for="keep">Keep username & seed next games</label>
+				<br />
+				<button type="submit">Play</button>
+			</form>
+		</div>
+		<script src="script.js"></script>
+	</body>
 </html>

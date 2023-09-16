@@ -1,49 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Ellipsoid</title>
-    <link href="game.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="../assets/ellipsoid.png" type="image/png" />
-    <script src="https://util.tinymooshmallow.repl.co/util.js"></script>
-  </head>
-  <body>
-    <div class="player box">
-      <div class="center">
-        <h1 id="playername"></h1>
-        <h3 class="turn" id="playerturn">Your Turn</h3>
-        <br />
-        <img
-          src="https://api.dicebear.com/7.x/shapes/svg?seed=2cn3u98cs"
-          alt="player"
-          class="icon"
-        />
-        <p class="stats">DMG <span id="dmg">15</span>&nbsp;&nbsp;&nbsp;HP <span id="hp">100</span>&nbsp;&nbsp;&nbsp;MANA <span id="mana">50</span></p>
-        <br>
-        <div class="moves">
-        <h2>Choose a move:</h2><br>
-        <button class="move">Attack</button>
-        <button class="move">Defend</button>
-        <button class="move">Heal</button>
-        <button class="move">Skip</button>
-          </div>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="enemy box">
-      <div class="center">
-        <h1 id="enemyname">enemy name</h1>
-        <h3 class="turn" id="enemyturn">Enemy Turn</h3>
-        <br />
-        <img
-          src="https://api.dicebear.com/7.x/shapes/svg?seed=w89h2cbyr8932"
-          alt="enemy"
-          class="icon"
-        />
-        <p class="stats">DMG <span id="edmg">15</span>&nbsp;&nbsp;&nbsp;HP <span id="ehp">100</span>&nbsp;&nbsp;&nbsp;MANA <span id="emana">50</span></p>
-      </div>
-    </div>
-    <script src="game.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Ellipsoid</title>
+		<link href="game.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="../assets/ellipsoid.png" type="image/png" />
+		<script src="https://util.tinymooshmallow.repl.co/util.js"></script>
+	</head>
+	<body>
+		<div class="gameover">
+			<div class="centerr">
+				<h1>Game Over</h1>
+				<h2>Kills: <span id="kills2">0</span></h2>
+				<button id="restart" onclick="location.href='../index.html';">
+					Title Screen
+				</button>
+			</div>
+		</div>
+		<h1 class="centerr" id="kill">
+			+1 Kill
+		</h1>
+		<div class="player box">
+			<div class="center">
+				<div class="container">
+					<h1 id="playername"></h1>
+					<h3 class="turn" id="playerturn">Your Turn</h3>
+					<br />
+					<img
+						src="https://api.dicebear.com/7.x/rings/svg?seed=loadingplayerico"
+						alt="Don't spam the API..."
+						class="icon"
+						id="playericon"
+					/>
+					<div class="stats">
+						DMG <span id="dmg">15</span><br />
+						KILLS <span id="kills">0</span><br /><br />
+						HP
+						<div class="hp bar">
+							<div id="hpbar"><p id="hp">100</p></div>
+						</div>
+						<br />
+						MANA
+						<div class="mana bar">
+							<div id="manabar"><p id="mana">50</p></div>
+						</div>
+					</div>
+					<br />
+					<div class="moves">
+						<h2>Choose a move:</h2>
+						<br />
+						<button class="move" onclick="started=true;move(attack)">
+							Attack - <span class="attackmanacost">10</span>
+						</button>
+						<button class="move" onclick="started=true;move(defend)">
+							Defend - <span class="defendmanacost">5</span>
+						</button>
+						<button class="move" onclick="started=true;move(heal)">
+							Heal - <span class="healmanacost">15</span>
+						</button>
+						<button class="move" onclick="started=true;move(skip)">Skip</button>
+					</div>
+					<p id="load">...</p>
+				</div>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div class="enemy box">
+			<div class="center">
+				<div class="container">
+					<h1 id="enemyname">enemy name</h1>
+					<h3 class="turn" id="enemyturn">Enemy Turn</h3>
+					<br />
+					<img
+						src="https://api.dicebear.com/7.x/rings/svg?seed=loadingplayerico&ringColor=e57373,ff8a65,e57373"
+						alt="Don't spam the API..."
+						class="icon"
+						id="enemyicon"
+					/>
+					<div class="stats">
+						DMG <span id="edmg">15</span><br /><br />
+						HP
+						<div class="hp bar">
+							<div id="ehpbar"><p id="ehp">100</p></div>
+						</div>
+						<br />
+						MANA
+						<div class="mana bar">
+							<div id="emanabar"><p id="emana">50</p></div>
+						</div>
+					</div>
+					<p id="eload">...</p>
+				</div>
+			</div>
+		</div>
+		<script src="game.js"></script>
+	</body>
 </html>

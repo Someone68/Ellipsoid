@@ -1,72 +1,76 @@
 @font-face {
-  font-family: monofont;
-  src: url(assets/eirian.ttf);
+	font-family: monofont;
+	src: url(assets/eirian.ttf);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: monofont, "Courier New", Courier, monospace;
+	margin: 0;
+	padding: 0;
+	font-family: monofont, "Courier New", Courier, monospace;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100vh;
+	width: 100%;
+	height: 100vh;
 }
 
 body {
-  background: #141414;
-  color: white;
+	background: #141414;
+	color: white;
 }
 
 .center {
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  width: 80%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	width: 80%;
 }
 
 .title h1 {
-  font-size: 60px;
+	font-size: 60px;
 }
 
 .title h1::before {
-  content: "<";
+	content: "<";
 }
 
 .title h1::after {
-  content: ">";
+	content: ">";
 }
 
 .title p {
-  font-size: 20px;
+	font-size: 20px;
 }
 
 .title button {
-  padding: 20px 40px;
-  margin: 40px;
-  cursor: pointer;
-  font-size: 25px;
-  outline: none;
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid lime;
-  color: white;
+	padding: 20px 40px;
+	margin: 40px;
+	cursor: pointer;
+	font-size: 25px;
+	outline: none;
+	background: rgba(0, 0, 0, 0.4);
+	border: 2px solid lime;
+	color: white;
 }
 
 .title button:hover {
-  border-color: aqua;
+	border-color: aqua;
 }
 
 input {
-  padding: 8px;
-  outline: none;
-  border: none;
-  background: rgb(33, 33, 33);
-  caret-color: white;
-  color: white;
-  margin: 5px;
-  font-size: 17px;
+	padding: 8px;
+	outline: none;
+	border: none;
+	background: rgb(33, 33, 33);
+	caret-color: white;
+	color: white;
+	margin: 5px;
+	font-size: 17px;
+}
+
+#seed {
+	width: 280px;
 }

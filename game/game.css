@@ -1,97 +1,201 @@
 @font-face {
-  font-family: monofont;
-  src: url(../assets/eirian.ttf);
+	font-family: monofont;
+	src: url(../assets/eirian.ttf);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: monofont, "Courier New", Courier, monospace;
+	margin: 0;
+	padding: 0;
+	font-family: monofont, "Courier New", Courier, monospace;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100vh;
+	width: 100%;
+	height: 100vh;
 }
 
 body {
-  background: #141414;
-  color: white;
+	background: #141414;
+	color: white;
 }
 
 .box {
-  top: 7%;
-  box-sizing: border-box;
-  border: 2px dashed white;
-  width: 36%;
-  left: 7%;
-  height: 86vh;
-  position: absolute;
+	top: 7%;
+	box-sizing: border-box;
+	border: 2px dashed white;
+	width: 36%;
+	left: 7%;
+	height: 86vh;
+	position: absolute;
 }
 
 .box .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .player {
-  border-color: #b8ffb8;
+	border-color: #b8ffb8;
 }
 
 .enemy {
-  right: 7%;
-  left: initial;
-  border-color: #ffb8b8;
+	right: 7%;
+	left: initial;
+	border-color: #ffb8b8;
 }
 
 .divider {
-  width: 0;
-  top: 2vh;
-  height: 96vh;
-  position: absolute;
-  border: 1px solid #fefeb4;
-  left: 50%;
-  transform: translateX(-50%);
+	width: 0;
+	top: 2vh;
+	height: 96vh;
+	position: absolute;
+	border: 1px solid #fefeb4;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .icon {
-  width: 80px;
-  display: block;
-  margin: auto;
+	width: 80px;
 }
 
-
 #playerturn {
-  color: lime;
+	color: lime;
 }
 
 #enemyturn {
-  visibility: hidden;
-  color: red;
+	visibility: hidden;
+	color: red;
 }
 
 .stats {
-  margin: 20px;
-  font-weight: bolder;
+	padding: 20px;
+	font-weight: bolder;
+	box-sizing: border-box;
+	width: 200px;
+	font-size: 18px;
 }
 
-.move{
-  display: block;
-  width: 160px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid lime;
-  margin: auto;
-  background: black;
-  color: white;
-  padding: 8px;
-  cursor: pointer;
+.move {
+	display: block;
+	width: 160px;
+	font-size: 18px;
+	outline: none;
+	border: 1px solid lime;
+	margin: auto;
+	background: black;
+	color: white;
+	padding: 8px;
+	cursor: pointer;
 }
 
 .move:hover {
-  background: #121212;
+	background: #121212;
+}
+
+#load,
+#eload {
+	display: none;
+	color: #b8c7ff;
+}
+
+.bar {
+	width: 100%;
+	height: 30px;
+	background: rgb(43, 24, 61);
+}
+
+#hpbar,
+#ehpbar {
+	width: 100%;
+	height: 30px;
+	background: rgb(255, 96, 96);
+}
+
+#manabar,
+#emanabar {
+	width: 100%;
+	height: 30px;
+	background: rgb(96, 181, 255);
+}
+
+.box {
+	overflow: auto;
+	box-sizing: border-box;
+}
+
+.bar div {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	box-sizing: border-box;
+}
+
+.bar div p {
+	margin-right: 10px;
+	line-height: 0;
+}
+
+.container {
+	margin: auto 0;
+}
+
+#restart {
+	outline: none;
+	cursor: pointer;
+	border: 2px solid lime;
+	background: rgb(24, 24, 24);
+	padding: 13px;
+	color: white;
+	margin: 10px;
+}
+
+#restart:hover {
+	background: rgb(30, 30, 30);
+}
+
+.gameover {
+	position: absolute;
+	z-index: 999999;
+	width: 100%;
+	height: 100vh;
+	background: #121212;
+	display: none;
+}
+
+.centerr {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#kill {
+	color: lime;
+	font-size: 40px;
+	animation-duration: 0.8s;
+	animation-iteration-count: 1;
+	display: none;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kill {
+	0% {
+		display: inline-block;
+		opacity: 1;
+	}
+	99% {
+		opacity: 0;
+	}
+	100% {
+		display: none;
+	}
 }
