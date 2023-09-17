@@ -190,6 +190,7 @@ function move(movename) {
 
 function enemyTurn(playerMove) {
 	if (!turn && started) {
+		let randomthing = randomFloat(2, 3);
 		let currentMove = [
 			"Attack",
 			"Attack",
@@ -218,7 +219,6 @@ function enemyTurn(playerMove) {
 		show(s("#eload"), "inline-block");
 		setTimeout(() => {
 			hide(s("#eload"));
-			let randomthing = randomFloat(2, 3);
 			if (
 				currentMove === "Attack" &&
 				currentEnemy.mana > Math.round(currentEnemy.damage / 1.5)
