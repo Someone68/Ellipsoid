@@ -80,22 +80,33 @@ function update() {
 		damage += randomInt(5, 10);
 		health = maxHealth;
 		mana = maxMana;
+		attack = new Move("Attack", damage, 0, 0, Math.round(damage / 1.5), 0);
+		defend = new Move(
+			"Defend",
+			0,
+			0,
+			Math.round(damage / randomInt(2, 3)),
+			Math.round(damage / randomFloat(2, 3)),
+			0
+		);
+		heal = new Move("Heal", 0, damage + Math.round(damage / 2), 0, damage, 0);
+		skip = new Move("Skip", 0, 0, 0, 0, Math.round(damage / 2.3));
 		s("#playerturn").style.visibility = "visible";
 		show(s(".moves"), "inline-block");
-		show(s("#kill"), "inline-block");
-		s("#kill").animationName = "kill";
-		setTimeout(() => {
-			s("#kill").animationName = "";
-			s("#kill").style.display = "none";
-		}, 800);
 		s("#enemyturn").style.visibility = "hidden";
 		currentEnemy = generateEnemy();
 		kills++;
 		turn = true;
+		s(".player").classList.add("active");
+		s(".enemy").classList.remove("active");
 	}
 	s("#dmg").innerHTML = damage;
 	s("#hp").innerHTML = health;
 	s("#mana").innerHTML = mana;
+	s("#emaxhp").innerHTML = currentEnemy.maxHealth;
+	s("#emaxmana").innerHTML = currentEnemy.maxMana;
+	s("#maxhp").innerHTML = maxHealth;
+	s("#maxmana").innerHTML = maxMana;
 	s("#edmg").innerHTML = currentEnemy.damage;
 	s("#ehp").innerHTML = currentEnemy.health;
 	s("#emana").innerHTML = currentEnemy.mana;
@@ -191,6 +202,9 @@ function move(movename) {
 						s("#enemyturn").style.visibility = "visible";
 						update();
 						if (currentEnemy.health > 0) enemyTurn(movename);
+
+						s(".player").classList.remove("active");
+						s(".enemy").classList.add("active");
 					}, 1000);
 				} else {
 					hide(s("#load"));
@@ -204,6 +218,9 @@ function move(movename) {
 					s("#enemyturn").style.visibility = "visible";
 					update();
 					if (currentEnemy.health > 0) enemyTurn(movename);
+
+					s(".player").classList.remove("active");
+					s(".enemy").classList.add("active");
 				}
 			}, randomInt(1000, 1500));
 			update();
@@ -288,7 +305,10 @@ function enemyTurn(playerMove) {
 			show(s(".moves"), "inline-block");
 			s("#enemyturn").style.visibility = "hidden";
 			update();
-		}, randomInt(1000, 1500));
+
+			s(".player").classList.add("active");
+			s(".enemy").classList.remove("active");
+		}, randomInt(1700, 2500));
 	}
 }
 

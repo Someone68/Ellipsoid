@@ -131,16 +131,22 @@ body {
 	box-sizing: border-box;
 }
 
-.bar div {
+.bar div:nth-child(1) {
 	display: flex;
 	align-items: center;
 	justify-content: right;
 	box-sizing: border-box;
+	transition-duration: 0.4s;
 }
 
-.bar div p {
-	margin-right: 10px;
-	line-height: 0;
+.bar div:nth-child(2) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	bottom: 25px;
 }
 
 .container {
@@ -217,4 +223,29 @@ body {
 	background-color: #3b3b3b;
 	border-radius: 10px;
 	border: 5px solid #141414;
+}
+
+.player.active {
+	box-shadow: 0 0 8px 3px #b8cfff;
+}
+
+.enemy.active {
+	box-shadow: 0 0 8px 3px #ffb8b8;
+}
+
+#load,
+#eload {
+	font-size: 20px;
+	color: #64ff9d;
+}
+
+.max {
+	display: inline;
+	margin-left: 20px;
+}
+
+.barcontainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
