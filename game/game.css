@@ -78,7 +78,6 @@ body {
 .stats {
 	padding: 20px;
 	font-weight: bolder;
-	box-sizing: border-box;
 	width: 200px;
 	font-size: 18px;
 }
