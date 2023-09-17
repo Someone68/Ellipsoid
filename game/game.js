@@ -212,7 +212,9 @@ function enemyTurn(playerMove) {
 		setTimeout(() => {
 			hide(s("#eload"));
 			let randomthing = randomFloat(2, 3);
-			if (
+			if (currentEnemy.mana <= Math.round(currentEnemy.damage / randomthing)) {
+				currentEnemy.mana += Math.round(currentEnemy.damage / 2.3);
+			} else if (
 				currentMove === "Attack" &&
 				currentEnemy.mana > Math.round(currentEnemy.damage / 1.5)
 			) {
@@ -235,8 +237,6 @@ function enemyTurn(playerMove) {
 				currentEnemy.mana -= currentEnemy.damage;
 				currentEnemy.health +=
 					currentEnemy.damage + Math.round(currentEnemy.damage / 2);
-			} else {
-				currentEnemy.mana += Math.round(currentEnemy.damage / 2.3);
 			}
 			turn = true;
 			s("#playerturn").style.visibility = "visible";
