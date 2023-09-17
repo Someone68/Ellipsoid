@@ -199,3 +199,22 @@ body {
 		display: none;
 	}
 }
+
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #3b3b3b #141414;
+}
+
+*::-webkit-scrollbar {
+	width: 13px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #141414;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #3b3b3b;
+	border-radius: 10px;
+	border: 5px solid #141414;
+}
