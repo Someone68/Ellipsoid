@@ -206,10 +206,12 @@ function enemyTurn(playerMove) {
 			"Skip",
 			"Skip",
 		][randomInt(0, 13)];
+		console.log(currentMove);
 		s("#eload").innerHTML = currentMove + "...";
 		show(s("#eload"), "inline-block");
 		setTimeout(() => {
 			hide(s("#eload"));
+			let randomthing = randomFloat(2, 3);
 			if (
 				currentMove === "Attack" &&
 				currentEnemy.mana > Math.round(currentEnemy.damage / 1.5)
@@ -222,14 +224,10 @@ function enemyTurn(playerMove) {
 				health -= damagedo;
 			} else if (
 				currentMove === "Defend" &&
-				currentEnemy.mana > Math.round(currentEnemy.damage / randomFloat(2, 3))
+				currentEnemy.mana > Math.round(currentEnemy.damage / randomthing)
 			) {
-				currentEnemy.mana -= Math.round(
-					currentEnemy.damage / randomFloat(2, 3)
-				);
-				currentEnemy.reduction = Math.round(
-					currentEnemy.damage / randomInt(2, 3)
-				);
+				currentEnemy.mana -= Math.round(currentEnemy.damage / randomthing);
+				currentEnemy.reduction = Math.round(currentEnemy.damage / randomthing);
 			} else if (
 				currentMove === "Heal" &&
 				currentEnemy.mana > currentEnemy.damage
