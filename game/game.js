@@ -206,15 +206,20 @@ function enemyTurn(playerMove) {
 			"Skip",
 			"Skip",
 		][randomInt(0, 13)];
+		if (
+			currentEnemy.mana < Math.round(currentEnemy.damage / 1.5) &&
+			currentEnemy.mana < Math.round(currentEnemy.damage / randomthing) &&
+			currentEnemy.mana < currentEnemy.damage
+		) {
+			currentMove = "Skip";
+		}
 		console.log(currentMove);
 		s("#eload").innerHTML = currentMove + "...";
 		show(s("#eload"), "inline-block");
 		setTimeout(() => {
 			hide(s("#eload"));
 			let randomthing = randomFloat(2, 3);
-			if (currentEnemy.mana <= Math.round(currentEnemy.damage / randomthing)) {
-				currentEnemy.mana += Math.round(currentEnemy.damage / 2.3);
-			} else if (
+			if (
 				currentMove === "Attack" &&
 				currentEnemy.mana > Math.round(currentEnemy.damage / 1.5)
 			) {
@@ -237,6 +242,8 @@ function enemyTurn(playerMove) {
 				currentEnemy.mana -= currentEnemy.damage;
 				currentEnemy.health +=
 					currentEnemy.damage + Math.round(currentEnemy.damage / 2);
+			} else {
+				currentEnemy.mana += Math.round(currentEnemy.damage / 2.3);
 			}
 			turn = true;
 			s("#playerturn").style.visibility = "visible";
