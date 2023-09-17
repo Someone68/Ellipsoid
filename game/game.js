@@ -207,11 +207,26 @@ function enemyTurn(playerMove) {
 			"Skip",
 			"Skip",
 		][randomInt(0, 13)];
+		console.log(Math.round(currentEnemy.damage / randomthing));
+		console.log(currentMove);
+		console.log(Math.round(currentEnemy.damage / randomthing));
+		console.log(currentEnemy.mana);
 		if (
-			currentEnemy.mana < Math.round(currentEnemy.damage / 1.5) &&
-			currentEnemy.mana < Math.round(currentEnemy.damage / randomthing) &&
-			currentEnemy.mana < currentEnemy.damage
+			currentMove === "Attack" &&
+			currentEnemy.mana > Math.round(currentEnemy.damage / 1.5)
 		) {
+			//dont do anything
+		} else if (
+			currentMove === "Defend" &&
+			currentEnemy.mana > Math.round(currentEnemy.damage / randomthing)
+		) {
+			//dont do anything
+		} else if (
+			currentMove === "Heal" &&
+			currentEnemy.mana > currentEnemy.damage
+		) {
+			//dont do anything
+		} else {
 			currentMove = "Skip";
 		}
 		console.log(currentMove);
