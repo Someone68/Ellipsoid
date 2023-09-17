@@ -167,21 +167,44 @@ function move(movename) {
 			hide(s(".moves"));
 			setTimeout(() => {
 				mana -= movename.manaCost;
-				hide(s("#load"));
 				damagedo = movename.damage - currentEnemy.reduction;
+				let crit = false;
+				if (Math.random() >= 0.75 && damagedo > 0) {
+					damagedo += Math.round(damagedo / 2.2);
+					crit = true;
+				}
 				if (damagedo < 0) {
 					damagedo = 0;
 				}
-				currentEnemy.health -= damagedo;
-				health += movename.heal;
-				mana += movename.manaGain;
-				currentEnemy.reducedDamage = movename.reduction;
-				turn = false;
-				currentEnemy.reduction = 0;
-				s("#playerturn").style.visibility = "hidden";
-				s("#enemyturn").style.visibility = "visible";
-				update();
-				if (currentEnemy.health > 0) enemyTurn(movename);
+				if (crit) {
+					s("#load").innerHTML =
+						"<span style='color:red;font-style:italic;font-weight:bold'>Critical Hit!</span>";
+					setTimeout(() => {
+						hide(s("#load"));
+						currentEnemy.health -= damagedo;
+						health += movename.heal;
+						mana += movename.manaGain;
+						currentEnemy.reducedDamage = movename.reduction;
+						turn = false;
+						currentEnemy.reduction = 0;
+						s("#playerturn").style.visibility = "hidden";
+						s("#enemyturn").style.visibility = "visible";
+						update();
+						if (currentEnemy.health > 0) enemyTurn(movename);
+					}, 1000);
+				} else {
+					hide(s("#load"));
+					currentEnemy.health -= damagedo;
+					health += movename.heal;
+					mana += movename.manaGain;
+					currentEnemy.reducedDamage = movename.reduction;
+					turn = false;
+					currentEnemy.reduction = 0;
+					s("#playerturn").style.visibility = "hidden";
+					s("#enemyturn").style.visibility = "visible";
+					update();
+					if (currentEnemy.health > 0) enemyTurn(movename);
+				}
 			}, randomInt(1000, 1500));
 			update();
 		}
