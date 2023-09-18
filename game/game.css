@@ -237,6 +237,7 @@ body {
 #eload {
 	font-size: 20px;
 	color: #64ff9d;
+	margin: 30px;
 }
 
 .max {
@@ -248,4 +249,23 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.temp {
+	font-size: 25px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: lime;
+	animation: 10s fade 1;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

@@ -75,11 +75,23 @@ function update() {
 	}
 	if (currentEnemy.health <= 0) {
 		currentEnemy.health = 0;
-		maxHealth += randomInt(10, 20);
-		maxMana += randomInt(5, 15);
-		damage += randomInt(5, 10);
+		let healthGain = randomInt(10, 20);
+		let manaGain = randomInt(5, 15);
+		let damageGain = randomInt(5, 10);
+		maxHealth += healthGain;
+		maxMana += manaGain;
+		damage += damageGain;
 		health = maxHealth;
 		mana = maxMana;
+		temp(
+			"+ 1 Kill<br>+ " +
+				healthGain +
+				" HP<br>+ " +
+				manaGain +
+				" Mana<br>+ " +
+				damageGain +
+				" Damage"
+		);
 		attack = new Move("Attack", damage, 0, 0, Math.round(damage / 1.5), 0);
 		defend = new Move(
 			"Defend",
@@ -130,6 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		s("#playericon").src = "../assets/rick.png";
 	} else if (playerIconSeed.toLowerCase() === "ellipsoid") {
 		s("#playericon").src = "../assets/ellipsoid.png";
+	} else if (playerIconSeed.toLowerCase() === "amogus") {
+		s("#playericon").src = "../assets/amogus.png";
 	} else {
 		s("#playericon").src =
 			"https://api.dicebear.com/7.x/shapes/svg?seed=" +
@@ -314,4 +328,11 @@ function enemyTurn(playerMove) {
 
 function gameOver() {
 	show(s(".gameover"), "inline-block");
+}
+
+function temp(text) {
+	let temporary = makeElement("p", text, document.body, [], ["temp"]);
+	setTimeout(() => {
+		temporary.remove();
+	}, 10000);
 }
