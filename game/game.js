@@ -47,8 +47,8 @@ class Enemy {
 function generateEnemy() {
 	let enemy = new Enemy(
 		enemyNames[randomInt(0, enemyNames.length - 1)],
-		randomInt(Math.round(maxHealth / 2), maxHealth + 5),
-		randomInt(Math.round(damage / 2), damage + 5),
+		randomInt(Math.round(maxHealth / 1.5), maxHealth + 5),
+		randomInt(Math.round(damage / 1.5), damage + 5),
 		maxMana
 	);
 	return enemy;
@@ -111,6 +111,14 @@ function update() {
 		turn = true;
 		s(".player").classList.add("active");
 		s(".enemy").classList.remove("active");
+		update();
+	}
+	if (turn) {
+		s(".player").classList.add("active");
+		s(".enemy").classList.remove("active");
+	} else {
+		s(".player").classList.remove("active");
+		s(".enemy").classList.add("active");
 	}
 	s("#dmg").innerHTML = damage;
 	s("#hp").innerHTML = health;
@@ -215,10 +223,12 @@ function move(movename) {
 						s("#playerturn").style.visibility = "hidden";
 						s("#enemyturn").style.visibility = "visible";
 						update();
-						if (currentEnemy.health > 0) enemyTurn(movename);
+						if (currentEnemy.health > 0) {
+							enemyTurn(movename);
 
-						s(".player").classList.remove("active");
-						s(".enemy").classList.add("active");
+							s(".player").classList.remove("active");
+							s(".enemy").classList.add("active");
+						}
 					}, 1000);
 				} else {
 					hide(s("#load"));
@@ -231,11 +241,14 @@ function move(movename) {
 					s("#playerturn").style.visibility = "hidden";
 					s("#enemyturn").style.visibility = "visible";
 					update();
-					if (currentEnemy.health > 0) enemyTurn(movename);
+					if (currentEnemy.health > 0) {
+						enemyTurn(movename);
 
-					s(".player").classList.remove("active");
-					s(".enemy").classList.add("active");
+						s(".player").classList.remove("active");
+						s(".enemy").classList.add("active");
+					}
 				}
+				update();
 			}, randomInt(1000, 1500));
 			update();
 		}
@@ -252,15 +265,19 @@ function enemyTurn(playerMove) {
 			"Attack",
 			"Attack",
 			"Attack",
+			"Attack",
+			"Attack",
+			"Attack",
+			"Attack",
 			"Defend",
 			"Defend",
-			"Defend",
+			"Heal",
 			"Heal",
 			"Heal",
 			"Heal",
 			"Skip",
 			"Skip",
-		][randomInt(0, 13)];
+		][randomInt(0, 17)];
 		console.log(Math.round(currentEnemy.damage / randomthing));
 		console.log(currentMove);
 		console.log(Math.round(currentEnemy.damage / randomthing));
