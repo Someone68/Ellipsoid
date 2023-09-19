@@ -267,8 +267,6 @@ function enemyTurn(playerMove) {
 			"Attack",
 			"Attack",
 			"Attack",
-			"Attack",
-			"Attack",
 			"Defend",
 			"Defend",
 			"Heal",
@@ -277,7 +275,7 @@ function enemyTurn(playerMove) {
 			"Heal",
 			"Skip",
 			"Skip",
-		][randomInt(0, 17)];
+		][randomInt(0, 15)];
 		console.log(Math.round(currentEnemy.damage / randomthing));
 		console.log(currentMove);
 		console.log(Math.round(currentEnemy.damage / randomthing));
