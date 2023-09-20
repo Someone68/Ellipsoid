@@ -40,7 +40,7 @@ class Enemy {
 		this.mana = mana;
 		this.maxHealth = health;
 		this.maxMana = mana;
-		this.pic = `https://api.dicebear.com/7.x/shapes/svg?seed=${name.toLowerCase()}`;
+		this.pic = `https://api.dicebear.com/7.x/shapes/svg?backgroundType=gradientLinear,solid&seed=${name.toLowerCase()}`;
 	}
 }
 
@@ -152,9 +152,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		s("#playericon").src = "../assets/ellipsoid.png";
 	} else if (playerIconSeed.toLowerCase() === "amogus") {
 		s("#playericon").src = "../assets/amogus.png";
+	} else if (playerIconSeed.toLowerCase() === "hackingtons") {
+		s("#playericon").src = "../assets/hackingtons.png";
+	} else if (playerIconSeed.toLowerCase() === "give me hp") {
+		s("#playericon").src = "../assets/health.png";
+		maxHealth += 25;
+		health = maxHealth;
+	} else if (playerIconSeed.toLowerCase() === "give me mana") {
+		s("#playericon").src = "../assets/mana.png";
+		maxMana += 25;
+		mana = maxMana;
 	} else {
 		s("#playericon").src =
-			"https://api.dicebear.com/7.x/shapes/svg?seed=" +
+			"https://api.dicebear.com/7.x/shapes/svg?backgroundType=gradientLinear,solid&seed=" +
 			removeNumbers(playerIconSeed).toLowerCase();
 	}
 	update();
